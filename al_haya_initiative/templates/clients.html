@@ -1,0 +1,1 @@
+{% extends "base.html" %}{% block content %}<h1>Clients <a class="btn" href="{{url_for('client_new')}}">+ Add</a></h1><table><tr><th>Name</th><th>Phone</th><th>Address</th></tr>{% for c in clients %}<tr><td>{{c.name}}</td><td>{{c.phone or ''}}</td><td>{{c.address or ''}}</td></tr>{% endfor %}</table>{% endblock %}

@@ -1,0 +1,6 @@
+<!doctype html>
+<html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Al Haya Initiative</title><link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}"></head>
+<body><header><div><b>Al Haya Initiative</b><small>Financial Operations System</small></div>
+{% if me %}<nav><a href="{{url_for('dashboard')}}">Dashboard</a>{% if me.role=='admin' %}<a href="{{url_for('members')}}">Members</a><a href="{{url_for('contributions')}}">Contributions</a><a href="{{url_for('clients')}}">Clients</a><a href="{{url_for('contracts')}}">Contracts</a><a href="{{url_for('recovery')}}">Recovery</a><a href="{{url_for('expenses')}}">Expenses</a><a href="{{url_for('settings')}}">Settings</a>{% endif %}<a href="{{url_for('logout')}}">Logout</a></nav>{% endif %}</header>
+<main>{% with msgs=get_flashed_messages(with_categories=true) %}{% for cat,msg in msgs %}<div class="flash {{cat}}">{{msg}}</div>{% endfor %}{% endwith %}{% block content %}{% endblock %}</main></body></html>

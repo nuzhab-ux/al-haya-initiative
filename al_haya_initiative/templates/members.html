@@ -1,0 +1,1 @@
+{% extends "base.html" %}{% block content %}<h1>Members <a class="btn" href="{{url_for('member_new')}}">+ Add</a></h1><table><tr><th>Name</th><th>Phone</th><th>Joined</th><th>Shares</th><th>Status</th></tr>{% for m in members %}<tr><td>{{m.name}}</td><td>{{m.phone or ''}}</td><td>{{m.joined_at}}</td><td>{{m.shares}}</td><td>{{m.status}}</td></tr>{% endfor %}</table>{% endblock %}
